@@ -4055,10 +4055,8 @@ input[type=radio].sr-only:checked ~ div.s-verify-back {
   --font-main: "DINNextLTArabic";
   /* plugins */
   --mm-ocd-width: calc(100% - 51px);
-  /* لضمان أن الصورة لا تتجاوز الحدود ويتم التحكم بحجمها */
-  /* التأثير الأساسي على الصورة */
-  /* تأثير التكبير عند مرور الماوس */
-  /* إضافة خلفية شفافة بيضاء على الصورة عند التمرير */
+  /* إعدادات الثلج بدون متغيرات Sass */
+  /* تحريك الثلج من الأعلى إلى الأسفل */
   /* شكل المربع */
   /* الافتراضي: 3 أعمدة */
   /* حجم الصورة الافتراضي */
@@ -4082,35 +4080,40 @@ input[type=radio].sr-only:checked ~ div.s-verify-back {
   display: block;
   margin-top: 5rem;
 }
-:root .banner {
-  position: relative;
-  display: inline-block;
-  overflow: hidden; /* إخفاء أي جزء من الصورة يتجاوز حدود العنصر */
-}
-:root .banner img {
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  display: block;
-  width: 100%;
-  height: auto;
-}
-:root .banner:hover img {
-  transform: scale(1.1); /* تكبير الصورة بنسبة 10% */
-  opacity: 0.9; /* تقليل الشفافية قليلاً */
-}
-:root .banner:before {
-  content: "";
+:root .snow, :root .snow:before, :root .snow:after {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.2); /* طبقة بيضاء شفافة */
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  z-index: 1;
+  pointer-events: none; /* لمنع التفاعل مع طبقة الثلج */
+  z-index: 1; /* تأكد من أن الثلج يظهر فوق الصورة */
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.8) 10%, rgba(255, 255, 255, 0) 70%);
+  background-repeat: repeat;
+  background-size: 50px 50px;
+  animation: snowFall 10s linear infinite; /* تحريك الثلج */
 }
-:root .banner:hover:before {
-  opacity: 1; /* تظهر الطبقة البيضاء الشفافة عند مرور الماوس */
+:root .snow:before {
+  content: "";
+  opacity: 0.5;
+  filter: blur(2px);
+  background-size: 75px 75px;
+  animation-duration: 15s; /* حركة بطيئة للطبقة الثانية */
+}
+:root .snow:after {
+  content: "";
+  opacity: 0.3;
+  filter: blur(4px);
+  background-size: 100px 100px;
+  animation-duration: 20s; /* حركة بطيئة للطبقة الثالثة */
+}
+@keyframes snowFall {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
 }
 :root .banner-entry {
   position: relative;

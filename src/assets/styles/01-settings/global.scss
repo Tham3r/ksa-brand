@@ -42,43 +42,45 @@ $main-text-color: var(--main-text-color);
     display: block;
     margin-top: 5rem;
 }
-/* لضمان أن الصورة لا تتجاوز الحدود ويتم التحكم بحجمها */
-.banner {
-  position: relative;
-  display: inline-block;
-  overflow: hidden; /* إخفاء أي جزء من الصورة يتجاوز حدود العنصر */
-}
-
-/* التأثير الأساسي على الصورة */
-.banner img {
-  transition: transform 0.5s ease, opacity 0.5s ease;
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* تأثير التكبير عند مرور الماوس */
-.banner:hover img {
-  transform: scale(1.1); /* تكبير الصورة بنسبة 10% */
-  opacity: 0.9; /* تقليل الشفافية قليلاً */
-}
-
-/* إضافة خلفية شفافة بيضاء على الصورة عند التمرير */
-.banner:before {
-  content: "";
+/* إعدادات الثلج بدون متغيرات Sass */
+.snow, .snow:before, .snow:after {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.2); /* طبقة بيضاء شفافة */
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  z-index: 1;
+  pointer-events: none; /* لمنع التفاعل مع طبقة الثلج */
+  z-index: 1; /* تأكد من أن الثلج يظهر فوق الصورة */
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.8) 10%, rgba(255, 255, 255, 0) 70%);
+  background-repeat: repeat;
+  background-size: 50px 50px;
+  animation: snowFall 10s linear infinite; /* تحريك الثلج */
 }
 
-.banner:hover:before {
-  opacity: 1; /* تظهر الطبقة البيضاء الشفافة عند مرور الماوس */
+.snow:before {
+  content: '';
+  opacity: 0.5;
+  filter: blur(2px);
+  background-size: 75px 75px;
+  animation-duration: 15s; /* حركة بطيئة للطبقة الثانية */
+}
+
+.snow:after {
+  content: '';
+  opacity: 0.3;
+  filter: blur(4px);
+  background-size: 100px 100px;
+  animation-duration: 20s; /* حركة بطيئة للطبقة الثالثة */
+}
+
+/* تحريك الثلج من الأعلى إلى الأسفل */
+@keyframes snowFall {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
 }
 
 /* شكل المربع */ 
