@@ -42,46 +42,6 @@ $main-text-color: var(--main-text-color);
     display: block;
     margin-top: 5rem;
 }
-/* إعدادات الثلج بدون متغيرات Sass */
-.snow, .snow:before, .snow:after {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* لمنع التفاعل مع طبقة الثلج */
-  z-index: 1; /* تأكد من أن الثلج يظهر فوق الصورة */
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.8) 10%, rgba(255, 255, 255, 0) 70%);
-  background-repeat: repeat;
-  background-size: 50px 50px;
-  animation: snowFall 10s linear infinite; /* تحريك الثلج */
-}
-
-.snow:before {
-  content: '';
-  opacity: 0.5;
-  filter: blur(2px);
-  background-size: 75px 75px;
-  animation-duration: 15s; /* حركة بطيئة للطبقة الثانية */
-}
-
-.snow:after {
-  content: '';
-  opacity: 0.3;
-  filter: blur(4px);
-  background-size: 100px 100px;
-  animation-duration: 20s; /* حركة بطيئة للطبقة الثالثة */
-}
-
-/* تحريك الثلج من الأعلى إلى الأسفل */
-@keyframes snowFall {
-  0% {
-    transform: translateY(-100%);
-  }
-  100% {
-    transform: translateY(100%);
-  }
-}
 
 /* شكل المربع */ 
 .banner-entry {
