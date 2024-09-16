@@ -26,4 +26,144 @@ $main-text-color: var(--main-text-color);
 
   /* plugins */
   --mm-ocd-width: calc(100% - 51px);
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* التوسيط الأفقي للصفحة */
+    align-items: flex-start; /* محاذاة العناصر إلى الأعلى */
+    min-height: 100vh;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-right: 0px;
+    padding-left: 0px;
+    display: block;
+    margin-top: 5rem;
+}
+
+/* شكل المربع */ 
+.banner-entry {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background-size: cover;
+  background-position: center;
+}
+
+/* الافتراضي: 3 أعمدة */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px; /* المسافة بين العناصر */
+  max-width: 1280px; /* الحد الأقصى للعرض */
+  width: 100%;
+}
+
+/* حجم الصورة الافتراضي */
+.banner-entry {
+  width: 390px;
+  height: 680px;
+}
+
+/* تعديل حجم العناصر حسب الشاشة */
+@media (max-width: 1200px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 عناصر في كل صف */
+  }
+  .banner-entry {
+    width: 390px; /* تغيير حجم الصورة */
+    height: 680px; /* تغيير حجم الصورة */
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 عناصر في كل صف */
+  }
+  .banner-entry {
+    width: 170px; /* تغيير حجم الصورة */
+    height: 300px; /* تغيير حجم الصورة */
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 عناصر في كل صف */
+  }
+  .banner-entry {
+    width: 115px; /* تغيير حجم الصورة */
+    height: 200px; /* تغيير حجم الصورة */
+    justify-content: center;
+  }
+}
+
+/* فوتر */
+.store-footer {
+    margin-top: 0; /* إلغاء تأثير margin-top من body */
+    background-color: #fca379;
+    color: #fff;
+    padding: 2rem 1rem;
+}
+
+.store-footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.store-footer__inner .container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    text-align: center;
+}
+
+.store-footer__inner h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.store-footer__inner a {
+    color: #f8a13b; /* لون الروابط */
+    text-decoration: none;
+}
+
+.store-footer__inner a:hover {
+    text-decoration: underline;
+}
+
+/* التعديل حسب الشاشات */
+@media (min-width: 768px) {
+    .store-footer__inner .container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 1024px) {
+    .store-footer__inner .container {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.store-footer__inner {
+    background-color: #ffffff!important; /* لون الخلفية للعنصر */
+  
+}
+.store-footer {
+    background-color: #ffffff!important; /* لون الخلفية للعنصر */
+  
+}
+@media (max-width: 768px) { /* للأجهزة ذات الشاشات الصغيرة */
+    .grid {
+        display: flex; /* استخدام Flexbox بدلاً من Grid */
+        flex-direction: row; /* العناصر في صف واحد */
+        flex-wrap: nowrap; /* منع التغليف للحفاظ على الصف الواحد */
+        justify-content: space-between; /* توزيع البلوكات بالتساوي */
+        gap: 10px; /* المحافظة على المسافة بين البلوكات */
+    }
+    .s-block.s-block--features.container {
+        flex: 1; /* تمكين الاستطالة لكل بلوك ليأخذ جزءاً متساوياً من العرض */
+    }
+}
 }
