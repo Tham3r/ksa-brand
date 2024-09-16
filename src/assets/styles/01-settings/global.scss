@@ -27,6 +27,7 @@ $main-text-color: var(--main-text-color);
   /* plugins */
   --mm-ocd-width: calc(100% - 51px);
   body {
+    background-color: #ffffff; /* لون الخلفية */
     margin: 0;
     padding: 0;
     display: flex;
@@ -40,6 +41,44 @@ $main-text-color: var(--main-text-color);
     padding-left: 0px;
     display: block;
     margin-top: 5rem;
+}
+/* لضمان أن الصورة لا تتجاوز الحدود ويتم التحكم بحجمها */
+.banner {
+  position: relative;
+  display: inline-block;
+  overflow: hidden; /* إخفاء أي جزء من الصورة يتجاوز حدود العنصر */
+}
+
+/* التأثير الأساسي على الصورة */
+.banner img {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* تأثير التكبير عند مرور الماوس */
+.banner:hover img {
+  transform: scale(1.1); /* تكبير الصورة بنسبة 10% */
+  opacity: 0.9; /* تقليل الشفافية قليلاً */
+}
+
+/* إضافة خلفية شفافة بيضاء على الصورة عند التمرير */
+.banner:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2); /* طبقة بيضاء شفافة */
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  z-index: 1;
+}
+
+.banner:hover:before {
+  opacity: 1; /* تظهر الطبقة البيضاء الشفافة عند مرور الماوس */
 }
 
 /* شكل المربع */ 
@@ -166,43 +205,4 @@ $main-text-color: var(--main-text-color);
         flex: 1; /* تمكين الاستطالة لكل بلوك ليأخذ جزءاً متساوياً من العرض */
     }
 }
-.banner-entry {
-  --a: 8deg;
-  width: 250px;
-  aspect-ratio: 1;
-  border-radius: 20px;
-  transform: perspective(400px) rotate3d(var(--r, 1, -1), 0, calc(var(--i, 1) * var(--a)));
-  -webkit-mask: 
-    linear-gradient(135deg, #000c 40%, #000, #000c 60%) 
-    100% 100% / 250% 250%;
-  transition: .4s;
-  cursor: pointer;
-}
-
-.banner-entry:hover {
-  --i: -1;
-  -webkit-mask-position: 0 0;
-}
-
-.banner-entry.alt {
-  --r: 1, 1;
-  -webkit-mask: 
-    linear-gradient(45deg, #000c 40%, #000, #000c 60%) 
-    0 100% / 250% 250%;
-}
-
-.banner-entry.alt:hover {
-  -webkit-mask-position: 100% 0;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  display: grid;
-  place-content: center;
-  grid-auto-flow: column;
-  gap: 80px;
-  background: #000;
-}
-
 }
