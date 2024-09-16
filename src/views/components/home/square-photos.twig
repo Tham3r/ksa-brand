@@ -22,7 +22,7 @@
     <div class="grid">
         {% for item in items %}
             <a class="banner-entry" href="{{ item.url }}" {% if item.link_type == 'external_link' %}target="_blank"{% endif %}>
-                <img src="{{ item.image.url }}" alt="{{ item.image.alt }}">
+                <img class="shine-img" src="{{ item.image.url }}" alt="{{ item.image.alt }}">
                 {% if item.text %}
                     <h3>{{ item.text }}</h3>
                 {% endif %}
@@ -30,3 +30,26 @@
         {% endfor %}
     </div>
 </section>
+
+<style>
+.shine-img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  transition: .5s;
+  cursor: pointer;
+  -webkit-mask: 
+    linear-gradient(135deg,#000c 40%,#000,#000c 60%)
+    100% 100%/250% 250%;
+}
+.shine-img:hover {
+  -webkit-mask-position: 0 0;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #000;
+}
+</style>
+
