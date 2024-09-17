@@ -682,17 +682,17 @@
                     "type": "static",
                     "format": "description",
                     "id": "with-bg",
-                    "value": "<div style='padding-top:10px;margin-bottom:30px;border:1px solid #ebebeb;border-radius:5px;text-align:center;overflow:hidden'><h6 style='margin-bottom:10px'>معاينة العنصر</h6><img src='https://cdn.salla.network/images/themes/raed/square-photos.jpg?v=1.1'></div>"
+                    "value": "<div ><h6 >معاينة العنصر</h6><img src='https://cdn.salla.network/images/themes/raed/square-photos.jpg?v=1.1'></div>"
                 },
                 {
                     "id": "banners",
                     "type": "collection",
                     "format": "collection",
                     "required": true,
-                    "minLength": 1,
-                    "maxLength": 5,
+                    "minLength": "3",
+                    "maxLength": "9",
                     "label": "قائمة الصور",
-                    "item_label": "صورة ",
+                    "item_label": "صورة",
                     "value": [],
                     "fields": [
                         {
@@ -703,8 +703,8 @@
                             "id": "banners.image",
                             "format": "image",
                             "required": true,
-                            "placeholder": "",
-                            "description": "* المقاس المناسب للصورة هو 640×427 بكسل",
+                            "placeholder": null,
+                            "description": "* المقاس المناسب للصورة هو 680×390 بكسل",
                             "settings": {
                                 "height": 427,
                                 "width": 640
@@ -715,8 +715,8 @@
                             "icon": "sicon-link",
                             "label": "الرابط",
                             "id": "banners.url",
-                            "value": null,
-                            "description": "",
+                            "value": [],
+                            "description": null,
                             "required": false,
                             "format": "variable-list",
                             "searchable": true,
@@ -776,27 +776,12 @@
                         },
                         {
                             "type": "string",
-                            "icon": "sicon-format-text-alt",
-                            "label": "عنوان رئيسي",
-                            "multilanguage": true,
-                            "id": "banners.title",
-                            "value": null,
-                            "required": false,
-                            "format": "text",
-                            "description": "نص يتم إضافته على الصورة بنمط خط كبير",
-                            "placeholder": "أدخل النص هنا...",
-                            "hide": false,
-                            "minLength": 0,
-                            "maxLength": 100
-                        },
-                        {
-                            "type": "string",
                             "icon": "sicon-typography",
                             "label": "نص توضيحي",
                             "multilanguage": true,
                             "id": "banners.description",
                             "value": null,
-                            "description": "نص يتم إضافته على الصورة بخط أصغر من العنوان الرئيسي",
+                            "description": "نص يتم إضافته على الصورة",
                             "format": "textarea",
                             "required": false,
                             "placeholder": "Your text here",
