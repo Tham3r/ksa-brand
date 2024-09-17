@@ -42,27 +42,23 @@ $main-text-color: var(--main-text-color);
     display: block;
     margin-top: 5rem;
 }
-.theme-toggle {
-  background: none;
-  border: none;
-  cursor: pointer;
+/* الثيم النهاري (الافتراضي) */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #000000;
 }
 
-.sun-and-moon {
-  fill: #f39c12; /* لون الشمس */
-  stroke: #f39c12; /* لون خطوط الشمس */
-  transition: all 0.5s ease;
+/* الثيم الليلي */
+.dark-theme {
+  --bg-color: #1a1a1a;
+  --text-color: #f1f1f1;
 }
 
-.dark-theme .sun-and-moon {
-  fill: #ffffff; /* لون القمر */
-  stroke: #000000; /* لون خطوط القمر */
+/* تطبيق الألوان في الصفحة */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
-/* افتراض أن هناك فئة 'dark-theme' تُضاف لجسم الصفحة أو عنصر رئيسي عند تفعيل الوضع الداكن */
-
-
-
-/* يمكنك إضافة المزيد من الأساليب حسب الحاجة */
 
 
 /* شكل المربع */ 
