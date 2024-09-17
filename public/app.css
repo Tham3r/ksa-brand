@@ -4055,9 +4055,8 @@ input[type=radio].sr-only:checked ~ div.s-verify-back {
   --font-main: "DINNextLTArabic";
   /* plugins */
   --mm-ocd-width: calc(100% - 51px);
-  /* الثيم النهاري (الافتراضي) */
-  /* الثيم الليلي */
-  /* تطبيق الألوان في الصفحة */
+  /* افتراض أن هناك فئة 'dark-theme' تُضاف لجسم الصفحة أو عنصر رئيسي عند تفعيل الوضع الداكن */
+  /* يمكنك إضافة المزيد من الأساليب حسب الحاجة */
   /* شكل المربع */
   /* الافتراضي: 3 أعمدة */
   /* حجم الصورة الافتراضي */
@@ -4081,17 +4080,19 @@ input[type=radio].sr-only:checked ~ div.s-verify-back {
   display: block;
   margin-top: 5rem;
 }
-:root :root {
-  --bg-color: #ffffff;
-  --text-color: #000000;
+:root .theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
 }
-:root .dark-theme {
-  --bg-color: #1a1a1a;
-  --text-color: #f1f1f1;
+:root .sun-and-moon {
+  fill: #f39c12; /* لون الشمس */
+  stroke: #f39c12; /* لون خطوط الشمس */
+  transition: all 0.5s ease;
 }
-:root body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+:root .dark-theme .sun-and-moon {
+  fill: #ffffff; /* لون القمر */
+  stroke: #000000; /* لون خطوط القمر */
 }
 :root .banner-entry {
   position: relative;
