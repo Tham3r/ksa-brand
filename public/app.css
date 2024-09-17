@@ -490,6 +490,7 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .-top-5{top:-1.25rem}
 .bottom-0{bottom:0px}
 .bottom-1{bottom:0.25rem}
+.bottom-2{bottom:0.5rem}
 .left-0{left:0px}
 .right-0{right:0px}
 .top-0{top:0px}
@@ -498,7 +499,6 @@ select{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/
 .top-24{top:6rem}
 .top-4{top:1rem}
 .top-full{top:100%}
-.bottom-2{bottom:0.5rem}
 .-z-1{z-index:-1}
 .z-10{z-index:10}
 .z-20{z-index:20}
@@ -7190,8 +7190,8 @@ lite-youtube.lyt-activated > .lty-playbtn {
 .ltr\:lg\:ml-8:where([dir="ltr"], [dir="ltr"] *){margin-left:2rem}
 .ltr\:lg\:mr-8:where([dir="ltr"], [dir="ltr"] *){margin-right:2rem}
 .ltr\:lg\:pl-10:where([dir="ltr"], [dir="ltr"] *){padding-left:2.5rem}
-.ltr\:lg\:pr-20:where([dir="ltr"], [dir="ltr"] *){padding-right:5rem}
-.ltr\:lg\:pl-20:where([dir="ltr"], [dir="ltr"] *){padding-left:5rem}}
+.ltr\:lg\:pl-20:where([dir="ltr"], [dir="ltr"] *){padding-left:5rem}
+.ltr\:lg\:pr-20:where([dir="ltr"], [dir="ltr"] *){padding-right:5rem}}
 @media (min-width: 480px){
 .ltr\:xs\:right-5:where([dir="ltr"], [dir="ltr"] *){right:1.25rem}}
 .rtl\:left-0:where([dir="rtl"], [dir="rtl"] *){left:0px}

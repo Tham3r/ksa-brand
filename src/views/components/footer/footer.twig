@@ -3,7 +3,7 @@
 	  <div class="container grid grid-col-1 lg:grid-cols-6 gap-8 lg:gap-6">
 		<div class="lg:col-span-2 rtl:lg:pl-20 ltr:lg:pr-20">
 		  <a href="{{ link('/') }}" class="flex items-center m-0">
-			<h3>{{store.name}}</h3>
+			<h3>{{ store.name }}</h3>
 		  </a>
 		  {% if store.description %}
 			<p class="max-w-sm leading-6 mb-6">
@@ -36,12 +36,12 @@
 		</div>
   
 		<div>
-		  <h3>{{ trans('blocks.footer.pages_links') }}</h3>
+		  <h3>{{ trans() }}</h3>
 		  <salla-menu source="footer"></salla-menu>
 		</div>
   
 		<div>
-		  <h3>{{ trans('blocks.footer.contact') }}</h3> <!-- تأكد من وجود عنوان بيانات التواصل -->
+		  <h3>{{ trans() }}</h3>
 		  <salla-contacts></salla-contacts>
 		  <div class="lg:hidden contact-social">
 			<salla-social></salla-social>
@@ -49,7 +49,7 @@
 		</div>
   
 		<div class="lg:col-span-2 rtl:lg:pr-20 ltr:lg:pl-20">
-		  <h3>{{ trans('blocks.footer.app_links') }}</h3> <!-- تأكد من وجود عنوان روابط تحميل التطبيقات -->
+		  <h3>{{ trans('blocks.footer.app_links') }}</h3>
 		  <salla-apps-icons></salla-apps-icons>
 		</div>
 	  </div>
@@ -59,7 +59,5 @@
 	  <span class="text-sm copyright-text">{% hook copyright %}</span>
 	  <salla-payments></salla-payments>
 	</div>
-  
-	<span class="hidden bottom-2 rtl:pl-24 ltr:pr-24 md:grid-cols-3"></span>
   </footer>
   
