@@ -38,5 +38,28 @@
 		<div>
 		  <h3>{{ trans('blocks.footer.pages_links') }}</h3>
 		  <salla-menu source="footer"></salla-menu>
-		</div
+		</div>
+  
+		<div>
+		  <h3>{{ trans('blocks.footer.contact') }}</h3> <!-- تأكد من وجود عنوان بيانات التواصل -->
+		  <salla-contacts></salla-contacts>
+		  <div class="lg:hidden contact-social">
+			<salla-social></salla-social>
+		  </div>
+		</div>
+  
+		<div class="lg:col-span-2 rtl:lg:pr-20 ltr:lg:pl-20">
+		  <h3>{{ trans('blocks.footer.app_links') }}</h3> <!-- تأكد من وجود عنوان روابط تحميل التطبيقات -->
+		  <salla-apps-icons></salla-apps-icons>
+		</div>
+	  </div>
+	</div>
+  
+	<div class="md:flex items-center justify-between py-4 container text-center">
+	  <span class="text-sm copyright-text">{% hook copyright %}</span>
+	  <salla-payments></salla-payments>
+	</div>
+  
+	<span class="hidden bottom-2 rtl:pl-24 ltr:pr-24 md:grid-cols-3"></span>
+  </footer>
   
