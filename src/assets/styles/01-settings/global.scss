@@ -27,7 +27,6 @@ $main-text-color: var(--main-text-color);
   /* plugins */
   --mm-ocd-width: calc(100% - 51px);
   body {
-    background-color: #ffffff; /* لون الخلفية */
     margin: 0;
     padding: 0;
     display: flex;
@@ -42,23 +41,106 @@ $main-text-color: var(--main-text-color);
     display: block;
     margin-top: 5rem;
 }
-/* الثيم النهاري (الافتراضي) */
-:root {
-  --bg-color: #ffffff;
-  --text-color: #000000;
-}
-
-/* الثيم الليلي */
-.dark-theme {
-  --bg-color: #1a1a1a;
-  --text-color: #f1f1f1;
-}
-
-/* تطبيق الألوان في الصفحة */
+/* Default Light Theme Styles */
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: #ffffff; /* أو أي لون خلفية للثيم النهاري */
+  color: #000000; /* لون النصوص في الثيم النهاري */
 }
+
+.main-nav-container {
+  background-color: #f8f9fa; /* لون خلفية الـ Main Nav في الثيم النهاري */
+  color: #000000; /* لون النصوص في الـ Main Nav في الثيم النهاري */
+}
+
+/* Dark Theme Styles */
+.dark-theme {
+  background-color: #121212; /* أو أي لون خلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص في الثيم الليلي */
+}
+
+.dark-theme .main-nav-container {
+  background-color: #000000; /* لون خلفية الـ Main Nav في الثيم الليلي */
+  color: #ffffff; /* لون النصوص في الـ Main Nav في الثيم الليلي */
+}
+/* اللون الافتراضي للـ footer */
+.store-footer {
+  background-color: var(--color-footer-bg-light);
+  color: var(--color-footer-text-light);
+  margin-top: 0; /* إلغاء تأثير margin-top من body */
+  padding: 2rem 1rem;
+
+  /* أي تنسيقات أخرى خاصة بـ footer */
+}
+
+/* اللون عند تفعيل الثيم الداكن */
+.dark-theme .store-footer {
+  background-color: var(--color-footer-bg-dark);
+  color: var(--color-footer-text-dark);
+  margin-top: 0; /* إلغاء تأثير margin-top من body */
+  padding: 2rem 1rem;
+}
+.store-footer__inner {
+  background-color: var(--color-footer-bg-light); /* لون الخلفية في الثيم النهاري */
+  color: var(--color-footer-text-light); /* لون النصوص في الثيم النهاري */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* أي تنسيقات أخرى خاصة بـ footer */
+}
+
+/* اللون عند تفعيل الثيم الداكن */
+.dark-theme .store-footer__inner {
+  background-color: var(--color-footer-bg-dark); /* لون الخلفية في الثيم الليلي */
+  color: var(--color-footer-text-dark); /* لون النصوص في الثيم الليلي */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* تعريف المتغيرات في CSS */
+:root {
+  --color-footer-bg-light: #ffffff; /* اللون الفاتح للخلفية */
+  --color-footer-text-light: #000000; /* اللون الفاتح للنصوص */
+  --color-footer-bg-dark: #333333; /* اللون الداكن للخلفية */
+  --color-footer-text-dark: #ffffff; /* اللون الداكن للنصوص */
+}
+
+.container {
+  background-color: var(--container-bg-light); /* لون الخلفية للثيم النهاري */
+  color: var(--container-text-light); /* لون النصوص للثيم النهاري */
+}
+
+/* تأثيرات الثيم الليلي */
+.dark-theme .container {
+  background-color: var(--container-bg-dark); /* لون الخلفية للثيم الليلي */
+  color: var(--container-text-dark); /* لون النصوص للثيم الليلي */
+}
+
+/* تأكد من أن جميع العناصر الفرعية تتماشى مع الثيم */
+.container .grid {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+}
+/* Theme Toggle Button */
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.sun-and-moon {
+  fill: #f39c12; /* لون الشمس في الثيم النهاري */
+  stroke: #f39c12; /* لون خطوط الشمس في الثيم النهاري */
+  transition: all 0.5s ease;
+}
+
+.dark-theme .sun-and-moon {
+  fill: #f1c40f; /* لون القمر في الثيم الليلي */
+  stroke: #f1c40f; /* لون خطوط القمر في الثيم الليلي */
+}
+/* اللون الافتراضي للـ footer */
 
 
 /* شكل المربع */ 
@@ -116,73 +198,47 @@ body {
     justify-content: center;
   }
 }
-
-/* فوتر */
-.store-footer {
-    margin-top: 0; /* إلغاء تأثير margin-top من body */
-    background-color: #fca379;
-    color: #fff;
-    padding: 2rem 1rem;
+/* تأثير الثيم النهاري */
+.container.grid.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
 }
 
-.store-footer__inner {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.store-footer__inner .container {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 1rem;
-    text-align: center;
-}
-
-.store-footer__inner h3 {
-    font-size: 1.25rem;
-    margin-bottom: 1rem;
-}
-
-.store-footer__inner a {
-    color: #f8a13b; /* لون الروابط */
-    text-decoration: none;
+/* تأثير الثيم الليلي */
+.dark-theme .container.grid.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
 }
 
 .store-footer__inner a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
 /* التعديل حسب الشاشات */
 @media (min-width: 768px) {
-    .store-footer__inner .container {
-        grid-template-columns: repeat(2, 1fr);
-    }
+  .store-footer__inner .container {
+      grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media (min-width: 1024px) {
-    .store-footer__inner .container {
-        grid-template-columns: repeat(4, 1fr);
-    }
+  .store-footer__inner .container {
+      grid-template-columns: repeat(4, 1fr);
+  }
 }
 
-.store-footer__inner {
-    background-color: #ffffff!important; /* لون الخلفية للعنصر */
-  
-}
-.store-footer {
-    background-color: #ffffff!important; /* لون الخلفية للعنصر */
-  
-}
+
 @media (max-width: 768px) { /* للأجهزة ذات الشاشات الصغيرة */
-    .grid {
-        display: flex; /* استخدام Flexbox بدلاً من Grid */
-        flex-direction: row; /* العناصر في صف واحد */
-        flex-wrap: nowrap; /* منع التغليف للحفاظ على الصف الواحد */
-        justify-content: space-between; /* توزيع البلوكات بالتساوي */
-        gap: 10px; /* المحافظة على المسافة بين البلوكات */
-    }
-    .s-block.s-block--features.container {
-        flex: 1; /* تمكين الاستطالة لكل بلوك ليأخذ جزءاً متساوياً من العرض */
-    }
+  .grid {
+      display: flex; /* استخدام Flexbox بدلاً من Grid */
+      flex-direction: row; /* العناصر في صف واحد */
+      flex-wrap: nowrap; /* منع التغليف للحفاظ على الصف الواحد */
+      justify-content: space-between; /* توزيع البلوكات بالتساوي */
+      gap: 10px; /* المحافظة على المسافة بين البلوكات */
+  }
+  .s-block.s-block--features.container {
+      flex: 1; /* تمكين الاستطالة لكل بلوك ليأخذ جزءاً متساوياً من العرض */
+  }
 }
+/* فوتر */
+
 }

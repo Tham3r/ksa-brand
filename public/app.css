@@ -947,12 +947,25 @@ textarea.s-input{height:6rem}
 @media (min-width: 1280px){
 .s-advertisement-content{max-width:1280px}}
 .s-advertisement-content{display:flex;align-items:center;justify-content:space-between;padding-top:0.625rem;padding-bottom:0.625rem}
-:root .store-footer__inner .s-advertisement-content {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 1rem;
-  gap: 1rem;
-  text-align: center;
+:root .s-advertisement-content {
+  background-color: var(--container-bg-light); /* لون الخلفية للثيم النهاري */
+  color: var(--container-text-light); /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .s-advertisement-content {
+  background-color: var(--container-bg-dark); /* لون الخلفية للثيم الليلي */
+  color: var(--container-text-dark); /* لون النصوص للثيم الليلي */
+}
+:root .s-advertisement-content .grid {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+}
+:root .s-advertisement-content.grid.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .s-advertisement-content.grid.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
 }
 @media (min-width: 768px) {
   :root .store-footer__inner .s-advertisement-content {
@@ -1305,6 +1318,10 @@ input[type=radio].sr-only:checked ~ div.s-cart-summary-count {
 .s-conditional-offer-checkpoint-border{display:flex;height:60px;min-width:60px;flex-direction:column;align-items:center;justify-content:center;border-radius:9999px;border-width:1px;--tw-bg-opacity:1;background-color:rgba(255, 255, 255, 1);background-color:rgba(255, 255, 255, var(--tw-bg-opacity))}
 .s-conditional-offer-checkpoint-border-colored{border-color:#414042;border-color:var(--color-primary);color:var(--color-primary-dark)}
 .s-conditional-offer-product-link{display:grid;aspect-ratio:1 / 1;height:58px;align-content:center;justify-content:center;place-content:center;overflow:hidden;border-radius:9999px}
+:root .container .s-conditional-offer-product-link {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+}
 :root .s-conditional-offer-product-link {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1328,6 +1345,14 @@ input[type=radio].sr-only:checked ~ div.s-cart-summary-count {
     grid-template-columns: repeat(3, 1fr); /* 3 عناصر في كل صف */
   }
 }
+:root .container.s-conditional-offer-product-link.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .container.s-conditional-offer-product-link.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
+}
 @media (max-width: 768px) {
   :root .s-conditional-offer-product-link {
     display: flex; /* استخدام Flexbox بدلاً من Grid */
@@ -1344,6 +1369,10 @@ input[type=radio].sr-only:checked ~ div.s-cart-summary-count {
 .s-conditional-offer-item-avatar-content{text-align:center;font-size:0.875rem;font-weight:700;line-height:1.25rem}
 .s-conditional-offer-item-avatar-content.active{color:var(--color-primary-dark);transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:500ms;transition-timing-function:cubic-bezier(0, 0, 0.2, 1)}
 .s-conditional-offer-checkpoint{position:relative;display:grid;height:60px;width:60px;flex-shrink:0;align-content:center;justify-content:center;place-content:center;border-radius:9999px;border-width:1px}
+:root .container .s-conditional-offer-checkpoint {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+}
 :root .s-conditional-offer-checkpoint {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1367,6 +1396,14 @@ input[type=radio].sr-only:checked ~ div.s-cart-summary-count {
     grid-template-columns: repeat(3, 1fr); /* 3 عناصر في كل صف */
   }
 }
+:root .container.s-conditional-offer-checkpoint.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .container.s-conditional-offer-checkpoint.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
+}
 @media (max-width: 768px) {
   :root .s-conditional-offer-checkpoint {
     display: flex; /* استخدام Flexbox بدلاً من Grid */
@@ -1377,6 +1414,10 @@ input[type=radio].sr-only:checked ~ div.s-cart-summary-count {
   }
 }
 .s-conditional-offer-progress-line-container{display:grid;width:100%;overflow:hidden;grid-template-areas:'progress-line'}
+:root .container .s-conditional-offer-progress-line-container {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+}
 :root .s-conditional-offer-progress-line-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1399,6 +1440,14 @@ input[type=radio].sr-only:checked ~ div.s-cart-summary-count {
   :root .s-conditional-offer-progress-line-container {
     grid-template-columns: repeat(3, 1fr); /* 3 عناصر في كل صف */
   }
+}
+:root .container.s-conditional-offer-progress-line-container.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .container.s-conditional-offer-progress-line-container.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
 }
 @media (max-width: 768px) {
   :root .s-conditional-offer-progress-line-container {
@@ -1946,6 +1995,10 @@ input[type=radio].sr-only:checked ~ div.s-map-my-location-button {
 .s-menu-non-root-level{position:relative}
 .s-menu-products-wrapper{flex-grow:1;padding:2rem}
 .s-menu-products-container{display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));grid-gap:1rem;gap:1rem}
+:root .container .s-menu-products-container {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+}
 :root .s-menu-products-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1968,6 +2021,14 @@ input[type=radio].sr-only:checked ~ div.s-map-my-location-button {
   :root .s-menu-products-container {
     grid-template-columns: repeat(3, 1fr); /* 3 عناصر في كل صف */
   }
+}
+:root .container.s-menu-products-container.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .container.s-menu-products-container.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
 }
 @media (max-width: 768px) {
   :root .s-menu-products-container {
@@ -2292,6 +2353,10 @@ input[type=radio].sr-only:checked ~ div.s-offer-bank-payment-discount-percent {
 .s-offer-modal-discount-table-cell:where([dir="rtl"], [dir="rtl"] *){text-align:left !important}
 .s-offer-modal-type-discounts-table .s-modal-body{position:relative !important}
 .s-order-summary-wrapper{display:grid;grid-gap:0.625rem;gap:0.625rem}
+:root .container .s-order-summary-wrapper {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+}
 :root .s-order-summary-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2314,6 +2379,14 @@ input[type=radio].sr-only:checked ~ div.s-offer-bank-payment-discount-percent {
   :root .s-order-summary-wrapper {
     grid-template-columns: repeat(3, 1fr); /* 3 عناصر في كل صف */
   }
+}
+:root .container.s-order-summary-wrapper.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .container.s-order-summary-wrapper.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
 }
 @media (max-width: 768px) {
   :root .s-order-summary-wrapper {
@@ -2780,6 +2853,10 @@ input[type=radio].sr-only:checked ~ div.s-product-options-donation-amount-currun
 .s-product-options-multiple-options-wrapper div label:where([dir="rtl"], [dir="rtl"] *){margin-left:0px;margin-right:0.5rem;padding-right:0px;padding-left:0.75rem}
 .s-product-options-splitter{border-width:2px;border-bottom-width:1px;--tw-border-opacity:1;border-color:rgba(229, 231, 235, 1);border-color:rgba(229, 231, 235, var(--tw-border-opacity))}
 .s-product-options-thumbnails-wrapper{display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));grid-gap:0.75rem;gap:0.75rem}
+:root .container .s-product-options-thumbnails-wrapper {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+}
 :root .s-product-options-thumbnails-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2802,6 +2879,14 @@ input[type=radio].sr-only:checked ~ div.s-product-options-donation-amount-currun
   :root .s-product-options-thumbnails-wrapper {
     grid-template-columns: repeat(3, 1fr); /* 3 عناصر في كل صف */
   }
+}
+:root .container.s-product-options-thumbnails-wrapper.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .container.s-product-options-thumbnails-wrapper.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
 }
 @media (max-width: 768px) {
   :root .s-product-options-thumbnails-wrapper {
@@ -2917,6 +3002,10 @@ input[type=radio].sr-only:checked ~ div.s-product-options-donation-amount-curren
 .s-product-size-guide-skeleton-header:where([dir="rtl"], [dir="rtl"] *) > :not([hidden]) ~ :not([hidden]){--tw-space-x-reverse:1}
 .s-product-size-guide-skeleton-header > salla-skeleton{flex:1 1 0%}
 .s-products-list-wrapper{margin-bottom:2rem;display:grid}
+:root .container .s-products-list-wrapper {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+}
 :root .s-products-list-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2940,6 +3029,14 @@ input[type=radio].sr-only:checked ~ div.s-product-options-donation-amount-curren
     grid-template-columns: repeat(3, 1fr); /* 3 عناصر في كل صف */
   }
 }
+:root .container.s-products-list-wrapper.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .container.s-products-list-wrapper.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
+}
 @media (max-width: 768px) {
   :root .s-products-list-wrapper {
     display: flex; /* استخدام Flexbox بدلاً من Grid */
@@ -2952,6 +3049,10 @@ input[type=radio].sr-only:checked ~ div.s-product-options-donation-amount-curren
 .s-products-list-placeholder{display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:2.5rem;padding-bottom:5rem;--tw-text-opacity:1;color:rgba(156, 163, 175, 1);color:rgba(156, 163, 175, var(--tw-text-opacity))}
 .s-products-list-placeholder p{padding-top:0.5rem;text-align:center;--tw-text-opacity:1;color:rgba(156, 163, 175, 1);color:rgba(156, 163, 175, var(--tw-text-opacity))}
 .s-products-list-row-cards{display:grid;grid-gap:1rem;gap:1rem}
+:root .container .s-products-list-row-cards {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+}
 :root .s-products-list-row-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -2974,6 +3075,14 @@ input[type=radio].sr-only:checked ~ div.s-product-options-donation-amount-curren
   :root .s-products-list-row-cards {
     grid-template-columns: repeat(3, 1fr); /* 3 عناصر في كل صف */
   }
+}
+:root .container.s-products-list-row-cards.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .container.s-products-list-row-cards.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
 }
 @media (max-width: 768px) {
   :root .s-products-list-row-cards {
@@ -3330,12 +3439,25 @@ input[type=radio].sr-only:checked ~ div.s-reviews-testimonial__icon svg {
 @media (min-width: 1280px){
 .s-reviews-summary-wrapper{max-width:1280px}}
 .s-reviews-summary-wrapper{align-items:center}
-:root .store-footer__inner .s-reviews-summary-wrapper {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 1rem;
-  gap: 1rem;
-  text-align: center;
+:root .s-reviews-summary-wrapper {
+  background-color: var(--container-bg-light); /* لون الخلفية للثيم النهاري */
+  color: var(--container-text-light); /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .s-reviews-summary-wrapper {
+  background-color: var(--container-bg-dark); /* لون الخلفية للثيم الليلي */
+  color: var(--container-text-dark); /* لون النصوص للثيم الليلي */
+}
+:root .s-reviews-summary-wrapper .grid {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+}
+:root .s-reviews-summary-wrapper.grid.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .s-reviews-summary-wrapper.grid.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
 }
 @media (min-width: 768px) {
   :root .store-footer__inner .s-reviews-summary-wrapper {
@@ -3712,6 +3834,10 @@ salla-slider .model-entry:before{--tw-content:'\e9a0';content:'\e9a0';content:va
 .s-slider-with-grid-thumbs .s-slider-thumbs-nav{display:none}
 .s-slider-grid-thumbs{transform:none !important}
 .s-slider-grid-thumbs{display:grid;grid-template-columns:repeat(4, minmax(0, 1fr));grid-gap:1.5rem;gap:1.5rem}
+:root .container .s-slider-grid-thumbs {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+}
 :root .s-slider-grid-thumbs {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3734,6 +3860,14 @@ salla-slider .model-entry:before{--tw-content:'\e9a0';content:'\e9a0';content:va
   :root .s-slider-grid-thumbs {
     grid-template-columns: repeat(3, 1fr); /* 3 عناصر في كل صف */
   }
+}
+:root .container.s-slider-grid-thumbs.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .container.s-slider-grid-thumbs.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
 }
 @media (max-width: 768px) {
   :root .s-slider-grid-thumbs {
@@ -3887,6 +4021,10 @@ input[type=radio].sr-only:checked ~ div.s-user-menu-red-dot .s-user-menu-avatar-
 .s-user-menu-login-btn:hover{opacity:0.8}
 .s-user-menu-login-btn svg{height:1.25rem;width:1.25rem;fill:#374151}
 .s-user-profile-wrapper{display:grid;grid-template-columns:repeat(1, minmax(0, 1fr));grid-gap:1.5rem;gap:1.5rem}
+:root .container .s-user-profile-wrapper {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+}
 :root .s-user-profile-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3910,6 +4048,14 @@ input[type=radio].sr-only:checked ~ div.s-user-menu-red-dot .s-user-menu-avatar-
     grid-template-columns: repeat(3, 1fr); /* 3 عناصر في كل صف */
   }
 }
+:root .container.s-user-profile-wrapper.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .container.s-user-profile-wrapper.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
+}
 @media (max-width: 768px) {
   :root .s-user-profile-wrapper {
     display: flex; /* استخدام Flexbox بدلاً من Grid */
@@ -3928,6 +4074,10 @@ input[type=radio].sr-only:checked ~ div.s-user-menu-red-dot .s-user-menu-avatar-
 .s-user-profile-filepond-placeholder-icon{margin-bottom:0.25rem}
 .s-user-profile-filepond-placeholder-icon svg{height:1.5rem;width:1.5rem;fill:#7c8082}
 .s-user-profile-skeleton-wrapper{display:grid;grid-template-columns:repeat(2, minmax(0, 1fr));grid-template-rows:repeat(3, minmax(0, 1fr));grid-gap:3rem;gap:3rem}
+:root .container .s-user-profile-skeleton-wrapper {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+}
 :root .s-user-profile-skeleton-wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -3950,6 +4100,14 @@ input[type=radio].sr-only:checked ~ div.s-user-menu-red-dot .s-user-menu-avatar-
   :root .s-user-profile-skeleton-wrapper {
     grid-template-columns: repeat(3, 1fr); /* 3 عناصر في كل صف */
   }
+}
+:root .container.s-user-profile-skeleton-wrapper.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .container.s-user-profile-skeleton-wrapper.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
 }
 @media (max-width: 768px) {
   :root .s-user-profile-skeleton-wrapper {
@@ -4055,17 +4213,26 @@ input[type=radio].sr-only:checked ~ div.s-verify-back {
   --font-main: "DINNextLTArabic";
   /* plugins */
   --mm-ocd-width: calc(100% - 51px);
-  /* افتراض أن هناك فئة 'dark-theme' تُضاف لجسم الصفحة أو عنصر رئيسي عند تفعيل الوضع الداكن */
-  /* يمكنك إضافة المزيد من الأساليب حسب الحاجة */
+  /* Default Light Theme Styles */
+  /* Dark Theme Styles */
+  /* اللون الافتراضي للـ footer */
+  /* اللون عند تفعيل الثيم الداكن */
+  /* اللون عند تفعيل الثيم الداكن */
+  /* تعريف المتغيرات في CSS */
+  /* تأثيرات الثيم الليلي */
+  /* تأكد من أن جميع العناصر الفرعية تتماشى مع الثيم */
+  /* Theme Toggle Button */
+  /* اللون الافتراضي للـ footer */
   /* شكل المربع */
   /* الافتراضي: 3 أعمدة */
   /* حجم الصورة الافتراضي */
   /* تعديل حجم العناصر حسب الشاشة */
-  /* فوتر */
+  /* تأثير الثيم النهاري */
+  /* تأثير الثيم الليلي */
   /* التعديل حسب الشاشات */
+  /* فوتر */
 }
 :root body {
-  background-color: #ffffff; /* لون الخلفية */
   margin: 0;
   padding: 0;
   display: flex;
@@ -4079,6 +4246,68 @@ input[type=radio].sr-only:checked ~ div.s-verify-back {
   padding-left: 0px;
   display: block;
   margin-top: 5rem;
+  background-color: #ffffff; /* أو أي لون خلفية للثيم النهاري */
+  color: #000000; /* لون النصوص في الثيم النهاري */
+}
+:root .main-nav-container {
+  background-color: #f8f9fa; /* لون خلفية الـ Main Nav في الثيم النهاري */
+  color: #000000; /* لون النصوص في الـ Main Nav في الثيم النهاري */
+}
+:root .dark-theme {
+  background-color: #121212; /* أو أي لون خلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص في الثيم الليلي */
+}
+:root .dark-theme .main-nav-container {
+  background-color: #000000; /* لون خلفية الـ Main Nav في الثيم الليلي */
+  color: #ffffff; /* لون النصوص في الـ Main Nav في الثيم الليلي */
+}
+:root .store-footer {
+  background-color: var(--color-footer-bg-light);
+  color: var(--color-footer-text-light);
+  margin-top: 0; /* إلغاء تأثير margin-top من body */
+  padding: 2rem 1rem;
+  /* أي تنسيقات أخرى خاصة بـ footer */
+}
+:root .dark-theme .store-footer {
+  background-color: var(--color-footer-bg-dark);
+  color: var(--color-footer-text-dark);
+  margin-top: 0; /* إلغاء تأثير margin-top من body */
+  padding: 2rem 1rem;
+}
+:root .store-footer__inner {
+  background-color: var(--color-footer-bg-light); /* لون الخلفية في الثيم النهاري */
+  color: var(--color-footer-text-light); /* لون النصوص في الثيم النهاري */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* أي تنسيقات أخرى خاصة بـ footer */
+}
+:root .dark-theme .store-footer__inner {
+  background-color: var(--color-footer-bg-dark); /* لون الخلفية في الثيم الليلي */
+  color: var(--color-footer-text-dark); /* لون النصوص في الثيم الليلي */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+:root :root {
+  --color-footer-bg-light: #ffffff; /* اللون الفاتح للخلفية */
+  --color-footer-text-light: #000000; /* اللون الفاتح للنصوص */
+  --color-footer-bg-dark: #333333; /* اللون الداكن للخلفية */
+  --color-footer-text-dark: #ffffff; /* اللون الداكن للنصوص */
+}
+:root .container {
+  background-color: var(--container-bg-light); /* لون الخلفية للثيم النهاري */
+  color: var(--container-text-light); /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .container {
+  background-color: var(--container-bg-dark); /* لون الخلفية للثيم الليلي */
+  color: var(--container-text-dark); /* لون النصوص للثيم الليلي */
+}
+:root .container .grid {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
 }
 :root .theme-toggle {
   background: none;
@@ -4086,13 +4315,13 @@ input[type=radio].sr-only:checked ~ div.s-verify-back {
   cursor: pointer;
 }
 :root .sun-and-moon {
-  fill: #f39c12; /* لون الشمس */
-  stroke: #f39c12; /* لون خطوط الشمس */
+  fill: #f39c12; /* لون الشمس في الثيم النهاري */
+  stroke: #f39c12; /* لون خطوط الشمس في الثيم النهاري */
   transition: all 0.5s ease;
 }
 :root .dark-theme .sun-and-moon {
-  fill: #ffffff; /* لون القمر */
-  stroke: #000000; /* لون خطوط القمر */
+  fill: #f1c40f; /* لون القمر في الثيم الليلي */
+  stroke: #f1c40f; /* لون خطوط القمر في الثيم الليلي */
 }
 :root .banner-entry {
   position: relative;
@@ -4141,33 +4370,13 @@ input[type=radio].sr-only:checked ~ div.s-verify-back {
     justify-content: center;
   }
 }
-:root .store-footer {
-  margin-top: 0; /* إلغاء تأثير margin-top من body */
-  background-color: #fca379;
-  color: #fff;
-  padding: 2rem 1rem;
+:root .container.grid.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
 }
-:root .store-footer__inner {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-:root .store-footer__inner .container {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 1rem;
-  gap: 1rem;
-  text-align: center;
-}
-:root .store-footer__inner h3 {
-  font-size: 1.25rem;
-  margin-bottom: 1rem;
-}
-:root .store-footer__inner a {
-  color: #f8a13b; /* لون الروابط */
-  -webkit-text-decoration: none;
-  text-decoration: none;
+:root .dark-theme .container.grid.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
 }
 :root .store-footer__inner a:hover {
   -webkit-text-decoration: underline;
@@ -4182,16 +4391,6 @@ input[type=radio].sr-only:checked ~ div.s-verify-back {
   :root .store-footer__inner .container {
     grid-template-columns: repeat(4, 1fr);
   }
-}
-:root .store-footer__inner {
-  background-color: #ffffff !important;
-}
-:root .store-footer__inner { /* لون الخلفية للعنصر */
-}
-:root .store-footer {
-  background-color: #ffffff !important;
-}
-:root .store-footer { /* لون الخلفية للعنصر */
 }
 @media (max-width: 768px) {
   :root { /* للأجهزة ذات الشاشات الصغيرة */ }
@@ -5988,12 +6187,25 @@ model-viewer[style*=width]:before{display:none}
 .s-comments-product .s-comments-container{width:100%;margin-right:auto;margin-left:auto;padding-right:10px;padding-left:10px}
 @media (min-width: 1280px){
 .s-comments-product .s-comments-container{max-width:1280px}}
-:root .store-footer__inner .s-comments-product .s-comments-container {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-gap: 1rem;
-  gap: 1rem;
-  text-align: center;
+:root .s-comments-product .s-comments-container {
+  background-color: var(--container-bg-light); /* لون الخلفية للثيم النهاري */
+  color: var(--container-text-light); /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .s-comments-product .s-comments-container {
+  background-color: var(--container-bg-dark); /* لون الخلفية للثيم الليلي */
+  color: var(--container-text-dark); /* لون النصوص للثيم الليلي */
+}
+:root .s-comments-product .s-comments-container .grid {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+}
+:root .s-comments-product .s-comments-container.grid.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .s-comments-product .s-comments-container.grid.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
 }
 @media (min-width: 768px) {
   :root .store-footer__inner .s-comments-product .s-comments-container {
@@ -6343,6 +6555,10 @@ input[type=radio].sr-only:checked ~ div.loyalty-star {
   flex-shrink: initial;
 }
 .points-ways__list{display:grid;grid-template-columns:repeat(1, minmax(0, 1fr));grid-gap:0.625rem;gap:0.625rem}
+:root .container .points-ways__list {
+  background-color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+  color: inherit; /* استخدم اللون الموروث من العنصر الأب */
+}
 :root .points-ways__list {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -6365,6 +6581,14 @@ input[type=radio].sr-only:checked ~ div.loyalty-star {
   :root .points-ways__list {
     grid-template-columns: repeat(3, 1fr); /* 3 عناصر في كل صف */
   }
+}
+:root .container.points-ways__list.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #f5f5f5; /* لون الخلفية للثيم النهاري */
+  color: #000000; /* لون النصوص للثيم النهاري */
+}
+:root .dark-theme .container.points-ways__list.grid-col-1.lg\:grid-cols-6.gap-8.lg\:gap-6 {
+  background-color: #222222; /* لون الخلفية للثيم الليلي */
+  color: #ffffff; /* لون النصوص للثيم الليلي */
 }
 @media (max-width: 768px) {
   :root .points-ways__list {
