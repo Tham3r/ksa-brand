@@ -1,3 +1,11 @@
+{#
+| Variable         | Type    | Description                     |
+|------------------|---------|---------------------------------|
+| cart             | object  |                                 |
+| cart.items_count | int     |                                 |
+| cart.total       | string  | Formatted total ex: "١٠٠ ر.س"   |
+#}
+{% set important_links = theme.settings.get('important_links') %}
 <header class="store-header">
   {# Top Nav #}
   <div class="top-navbar">
@@ -38,35 +46,66 @@
   </div>
 
   {# Main Nav #}
-  <nav class="main-navbar ease-[cubic-bezier(.5,.52,.5,.52)] duration-300 h-auto w-[90%] bg-white/80 dark:bg-[#1f1f2ceb] rounded-xl z-20 top-3 fixed -translate-x-1/2 left-1/2 backdrop-blur-sm navbar-box-shadow py-2 px-4 flex justify-between">
-    <div class="flex gap-3">
-      <a href="#mobile-menu" class="hover:text-primary cursor-pointer text-[#676D75] flex lg:hidden items-center justify-center gap-1 flex-col">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M20 7H4m16 5H4m16 5H4"></path></svg>
-      </a>
-      <a href="{{ store.url }}" aria-label="Store Home Page">
-        <img src="{{ store.logo }}" alt="{{ store.name }} Logo" class="w-auto h-[60px] object-contain">
-      </a>
-    </div>
-    <button class="btn--close-sm close-mobile-menu sicon-cancel hidden"></button>
-    <div class="flex gap-5 items-center">
-      <button onclick="if (!window.__cfRLUnblockHandlers) return false; salla.event.dispatch('search::open')" class="hover:text-primary cursor-pointer text-[#676D75] hidden lg:flex items-center justify-center gap-1 flex-col">
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M11.7 4C7.83399 4 4.69998 7.13401 4.69998 11C4.69998 14.866 7.83399 18 11.7 18C15.566 18 18.7 14.866 18.7 11C18.7 7.13401 15.566 4 11.7 4ZM2.69998 11C2.69998 6.02944 6.72942 2 11.7 2C16.6705 2 20.7 6.02944 20.7 11C20.7 15.9706 16.6705 20 11.7 20C6.72942 20 2.69998 15.9706 2.69998 11Z" fill="currentColor"></path>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M16.6429 15.9429C17.0334 15.5524 17.6666 15.5524 18.0571 15.9429L22.4071 20.2929C22.7976 20.6834 22.7976 21.3166 22.4071 21.7071C22.0166 22.0976 21.3834 22.0976 20.9929 21.7071L16.6429 17.3571C16.2523 16.9666 16.2523 16.3334 16.6429 15.9429Z" fill="currentColor"></path>
-        </svg>
-      </button>
-      <button type="button" onclick="if (!window.__cfRLUnblockHandlers) return false; salla.event.dispatch('localization::open')" class="btn--rounded-gray inline-flex basis-0">
-        <span class="flag iti__flag iti__sa rounded-sm"></span>
-        <span class="mx-1.5">|</span> <span>ر.س</span>
-      </button>
-      <salla-localization-modal class="hidden hydrated" language="ar" currency="SAR"></salla-localization-modal>
-      <button class="header-btn text-[#676D75] hidden lg:inline-block" aria-label="user-icon" onclick="if (!window.__cfRLUnblockHandlers) return false; salla.event.dispatch('login::open')">
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24" fill="none">
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M4.56447 15.4645C5.50215 14.5268 6.77392 14 8.10001 14H16.1C17.4261 14 18.6979 14.5268 19.6355 15.4645C20.5732 16.4021 21.1 17.6739 21.1 19V21C21.1 21.5523 20.6523 22 20.1 22C19.5477 22 19.1 21.5523 19.1 21V19C19.1 18.2044 18.7839 17.4413 18.2213 16.8787C17.6587 16.3161 16.8957 16 16.1 16H8.10001C7.30436 16 6.5413 16.3161 5.97869 16.8787C5.41608 17.4413 5.10001 18.2044 5.10001 19V21C5.10001 21.5523 4.65229 22 4.10001 22C3.54772 22 3.10001 21.5523 3.10001 21V19C3.10001 17.6739 3.62679 16.4021 4.56447 15.4645Z" fill="currentColor"></path>
-          <path fill-rule="evenodd" clip-rule="evenodd" d="M12.1 4C10.4432 4 9.10001 5.34315 9.10001 7C9.10001 8.65685 10.4432 10 12.1 10C13.7569 10 15.1 8.65685 15.1 7C15.1 5.34315 13.7569 4 12.1 4ZM7.10001 7C7.10001 4.23858 9.33858 2 12.1 2C14.8614 2 17.1 4.23858 17.1 7C17.1 9.76142 14.8614 12 12.1 12C9.33858 12 7.10001 9.76142 7.10001 7Z" fill="currentColor"></path>
-        </svg>
-      </button>
-      <salla-cart class="hidden lg:flex"></salla-cart>
-    </div>
-  </nav>
+  <div id="mainnav" class="main-nav-container shadow-default bg-white">
+      <div class="inner bg-inherit">
+          <div class="container">
+              <div class="flex items-stretch justify-between relative">
+                  <div class="flex items-center">
+                      <a class="lg:hidden mburger mburger--collapse leading-none rtl:ml-4 ltr:mr-4" href="#mobile-menu" aria-label="Open-menu">
+                        <i class="sicon-menu text-primary text-2xl"></i>
+                      </a>
+                      <a class="navbar-brand" href="{{ store.url }}">
+                          <img fetchpriority="high" width="100%" height="100%" loading="eager" src="{{ store.logo }}" alt="{{ store.name }} logo">
+                          {% if is_page('index') %}
+                            <h1 class="sr-only">{{ store.name }}</h1>
+                          {% else %}
+                            <h2 class="sr-only">{{ store.name }}</h2>
+                          {% endif %}
+                      </a>
+                      <custom-main-menu></custom-main-menu>
+                  </div>
+                  <div class="flex items-center justify-end gap-4">
+                      {% if user.type=='user' %}
+                        <salla-user-menu avatar-only show-header></salla-user-menu>
+                      {% else %}
+                          <button class="header-btn" aria-label="user-icon" onclick="salla.event.dispatch('login::open')">
+                            <i class="header-btn__icon sicon-user-circle"></i>
+                          </button>
+                      {% endif %}
+
+                      <!-- زر تبديل الثيم -->
+                      <div class="flex cursor-pointer" id="theme-toggle" aria-label="dark">
+                        <button class="theme-toggle" title="Toggles light & dark" aria-label="auto" aria-live="polite">
+                          <svg class="sun-and-moon" aria-hidden="true" width="24" height="24" viewBox="0 0 24 24">
+                            <mask class="moon" id="moon-mask">
+                              <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
+                              <circle cx="24" cy="10" r="6" fill="black"></circle>
+                            </mask>
+                            <circle class="sun" cx="12" cy="12" r="6" mask="url(#moon-mask)" fill="currentColor"></circle>
+                            <g class="sun-beams" stroke="currentColor">
+                              <line x1="12" y1="1" x2="12" y2="3"></line>
+                              <line x1="12" y1="21" x2="12" y2="23"></line>
+                              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                              <line x1="1" y1="12" x2="3" y2="12"></line>
+                              <line x1="21" y1="12" x2="23" y2="12"></line>
+                              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                            </g>
+                          </svg>
+                        </button>
+                      </div>
+
+                      <salla-cart-summary class="ml-4 rtl:ml-[unset] rtl:mr-4">
+                        <i slot="icon" class="header-btn__icon icon sicon-shopping-bag"></i>
+                      </salla-cart-summary>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
 </header>
+
+{% if store.scope %}
+    <salla-scopes selection="{{ store.scope.display_as == 'popup' ? 'mandatory' : 'optional' }}"></salla-scopes>
+{% endif %}
