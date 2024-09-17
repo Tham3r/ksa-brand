@@ -79,26 +79,6 @@ body {
   margin-top: 0; /* إلغاء تأثير margin-top من body */
   padding: 2rem 1rem;
 }
-.store-footer__inner {
-  background-color: var(--color-footer-bg-light); /* لون الخلفية في الثيم النهاري */
-  color: var(--color-footer-text-light); /* لون النصوص في الثيم النهاري */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  /* أي تنسيقات أخرى خاصة بـ footer */
-}
-
-/* اللون عند تفعيل الثيم الداكن */
-.dark-theme .store-footer__inner {
-  background-color: var(--color-footer-bg-dark); /* لون الخلفية في الثيم الليلي */
-  color: var(--color-footer-text-dark); /* لون النصوص في الثيم الليلي */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
 /* تعريف المتغيرات في CSS */
 :root {
   --color-footer-bg-light: #ffffff; /* اللون الفاتح للخلفية */
@@ -106,6 +86,27 @@ body {
   --color-footer-bg-dark: #333333; /* اللون الداكن للخلفية */
   --color-footer-text-dark: #ffffff; /* اللون الداكن للنصوص */
 }
+
+/* تنسيق الفوتر في الثيم النهاري */
+.store-footer__inner {
+  background-color: var(--color-footer-bg-light) !important;
+  color: var(--color-footer-text-light) !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* تنسيق الفوتر في الثيم الداكن */
+.dark-theme .store-footer__inner {
+  background-color: var(--color-footer-bg-dark) !important;
+  color: var(--color-footer-text-dark) !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
 
 .container {
   background-color: var(--container-bg-light); /* لون الخلفية للثيم النهاري */
